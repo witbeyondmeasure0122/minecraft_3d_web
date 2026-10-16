@@ -1,0 +1,97 @@
+* { box-sizing: border-box; }
+html, body, #game { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #fff;
+  background: #8ec9ef;
+  user-select: none;
+}
+canvas { display: block; }
+.panel {
+  background: rgba(15, 23, 42, .78);
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 10px;
+  padding: 10px 13px;
+  box-shadow: 0 4px 18px rgba(0,0,0,.15);
+  backdrop-filter: blur(5px);
+}
+#hud {
+  position: fixed;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  pointer-events: none;
+}
+#status { margin-top: 5px; font-size: 13px; color: #dbeafe; }
+.controls { font-size: 12px; line-height: 1.65; }
+#crosshair {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 28px;
+  line-height: 1;
+  color: white;
+  text-shadow: 0 1px 4px #000, 1px 0 4px #000;
+  pointer-events: none;
+}
+#toolbar {
+  position: fixed;
+  z-index: 4;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: calc(100% - 20px);
+}
+button {
+  color: #f8fafc;
+  background: #334155;
+  border: 1px solid #64748b;
+  border-radius: 7px;
+  padding: 9px 11px;
+  font: inherit;
+  cursor: pointer;
+}
+button:hover { background: #475569; }
+button.selected { outline: 2px solid #facc15; background: #475569; }
+button.primary { background: #15803d; border-color: #4ade80; padding: 11px 22px; font-weight: 700; }
+button.primary:hover { background: #166534; }
+button.danger { background: #7f1d1d; border-color: #ef4444; }
+#overlay {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15,23,42,.46);
+}
+#overlay.hidden { display: none; }
+.dialog {
+  width: min(460px, calc(100% - 32px));
+  padding: 26px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 16px;
+  background: rgba(15,23,42,.94);
+  box-shadow: 0 18px 60px rgba(0,0,0,.3);
+}
+.dialog h1 { margin: 0 0 12px; font-size: 28px; }
+.dialog p { line-height: 1.6; }
+.muted { color: #cbd5e1; font-size: 13px; }
+#error { color: #fecaca; margin-top: 12px; font-size: 13px; }
+@media (max-width: 700px) {
+  #hud { flex-direction: column; }
+  .controls { display: none; }
+  #toolbar { bottom: 8px; }
+  button { padding: 8px; font-size: 12px; }
+}

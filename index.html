@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>方塊世界｜3D 網頁沙盒</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="hud">
+    <div class="panel">
+      <strong>方塊世界</strong>
+      <div id="status">載入中……</div>
+    </div>
+    <div class="panel controls">
+      <strong>操作方式</strong>
+      <div>W A S D：移動　空白鍵：跳躍</div>
+      <div>滑鼠：轉動視角　左鍵：挖掘</div>
+      <div>右鍵：放置　1～4：選擇方塊</div>
+      <div>Esc：釋放滑鼠</div>
+    </div>
+  </div>
+
+  <div id="crosshair" aria-hidden="true">+</div>
+
+  <div id="toolbar" class="panel">
+    <button data-block="grass" class="selected">1 草地</button>
+    <button data-block="dirt">2 泥土</button>
+    <button data-block="stone">3 石頭</button>
+    <button data-block="wood">4 木頭</button>
+    <button id="saveBtn">儲存</button>
+    <button id="resetBtn" class="danger">重設世界</button>
+  </div>
+
+  <div id="overlay">
+    <div class="dialog">
+      <h1>3D 方塊世界</h1>
+      <p>在瀏覽器中探索、挖掘與放置方塊。</p>
+      <p class="muted">點擊下方按鈕進入遊戲；需要滑鼠控制視角。</p>
+      <button id="startBtn" class="primary">開始遊戲</button>
+      <div id="error" role="status"></div>
+    </div>
+  </div>
+
+  <script type="module" src="./game.js"></script>
+</body>
+</html>
